@@ -1,0 +1,13 @@
+﻿  Prvi_zadatak.c
+C:\Users\Korisnik\source\repos\Strukture Podataka\Strukture Podataka\Prvi_zadatak.c(80,47): warning C4028: formal parameter 2 different from declaration
+C:\Users\Korisnik\source\repos\Strukture Podataka\Strukture Podataka\Prvi_zadatak.c(80,50): warning C4029: declared formal parameter list different from definition
+C:\Users\Korisnik\source\repos\Strukture Podataka\Strukture Podataka\Prvi_zadatak.c(94,45): warning C4028: formal parameter 2 different from declaration
+C:\Users\Korisnik\source\repos\Strukture Podataka\Strukture Podataka\Prvi_zadatak.c(94,75): warning C4029: declared formal parameter list different from definition
+C:\Users\Korisnik\source\repos\Strukture Podataka\Strukture Podataka\Prvi_zadatak.c(109,34): warning C4133: 'function': incompatible types - from 'char [10]' to 'FILE *'
+C:\Users\Korisnik\source\repos\Strukture Podataka\Strukture Podataka\Prvi_zadatak.c(119,29): warning C4133: 'function': incompatible types - from 'char [10]' to 'FILE *'
+  Generating code
+  2 of 11 functions (18.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Strukture Podataka.vcxproj -> C:\Users\Korisnik\source\repos\Strukture Podataka\Release\Strukture Podataka.exe
