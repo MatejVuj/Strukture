@@ -7,6 +7,7 @@
 
 #define MAX_LENGHT 50
 #define MEMORY_ALLOCATION_ERROR -1
+#define ERROR_EXIT -1
 
 struct Osoba;
 
@@ -21,13 +22,19 @@ typedef struct Osoba {
 
 }osoba;
 
+int UnosPodataka(Position);
+
 int UnosP(Position);
 
 int Ispis(Position);
 
 int UnosK(Position);
 
-int UnosPodataka(Position);
+int Brisi_Osobu(Position);
+
+Position Pronadji(Position);
+
+Position PronadjiPret(Position, char*);
 
 int UnosPodataka(Position q)
 {
@@ -96,6 +103,72 @@ int UnosK(Position P) {
 	return 0;
 }
 
+Position Pronadji(Position P) {
+	char surname[MAX_LENGHT] = { 0 };
+	//int i = 1;
+
+	printf("\nUnesite prezime\n");
+	scanf(" %s", surname);
+
+	while (P != NULL && strcmp(P->surname, surname)) {
+
+		//if(strcmp(P->surname, surname)==NULL);
+		//i++;
+
+		P = P->Next;
+	}
+
+	if (P == NULL) {
+		printf("\nOsoba ne postoji");
+		return NULL;
+	}
+
+	printf("\nOSOBA -> %s %s %d\n", P->name, P->surname, P->year);
+
+	return P;
+}
+
+Position PronadjiPret(Position P, char* surname) {
+	
+	Position before = P;
+	
+	P = P->Next;
+
+	while (P->Next != NULL && strcmp(P->surname, surname)) {
+		
+		before = before->Next;
+		P = P->Next;
+	}
+
+	if (P->Next == NULL)
+		return NULL;
+	else
+		return before;
+}
+
+int Brisi_Osobu(Position P) {
+
+	Position before, q;
+	char surname[MAX_LENGHT] = { 0 };
+
+	printf("\nUnesite prezime\n");
+	scanf(" %s", surname);
+
+	before = PronadjiPret(P, surname);
+
+	if (before == NULL) {
+		printf("Nema prethodnika, ne moze obrisat");
+		return ERROR_EXIT;
+	}
+
+	q = before->Next;
+	before->Next = q->Next;
+	
+	free(q);
+
+	return 0;
+}
+
 void OslobodiMemoriju(Position P){
 	while (P->Next != NULL)
 	{
@@ -111,6 +184,7 @@ int main() {
 
 	Position Head;
 	char insert = 0;
+	//char surname[MAX_LENGHT] = {0};
 
 	Head = NULL;
 
@@ -131,13 +205,15 @@ int main() {
 		printf("\n1 -> Dodavanje osobe na pocetak liste");
 		printf("\n2 -> Ispis Liste");
 		printf("\n3 -> Dodavanje na kraj liste");
+		printf("\n4 -> Trazenje po prezimenu");
+		printf("\n5 -> Brisanje odredjene osobe");
 
 		printf("\nIzbor -> ");
 
 		scanf(" %c", &insert);
 
 		switch (insert) {
-		case '0':
+		case 'z':
 			printf("\nZavrsetak programa");
 			break;
 
@@ -153,9 +229,16 @@ int main() {
 			UnosK(Head);
 			break;
 
+		case '4':
+			Pronadji(Head);
+			break;
+		
+		case '5':
+			Brisi_Osobu(Head);
+			break;
+
 		default:
 			printf("\nNE MOZE");
-
 
 		}
 
