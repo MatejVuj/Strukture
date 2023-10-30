@@ -30,9 +30,15 @@ int Ispis(Position);
 
 int UnosK(Position);
 
+int UnosIza(Position);
+
+int UnosIspred(Position);
+
 int Brisi_Osobu(Position);
 
 Position Pronadji(Position);
+
+Position PronadjiPret(Position, char*);
 
 Position PronadjiPret(Position, char*);
 
@@ -128,20 +134,37 @@ Position Pronadji(Position P) {
 	return P;
 }
 
+Position Pronadji_za_UnosIza(Position P, char* surname) {
+
+	while (P != NULL && strcmp(P->surname, surname)) {
+		P = P->Next;
+	}
+
+	if (P == NULL) {
+		printf("\nOsoba ne postoji");
+		return NULL;
+	}
+
+	return P;
+}
+
 Position PronadjiPret(Position P, char* surname) {
 	
 	Position before = P;
 	
 	P = P->Next;
 
-	while (P->Next != NULL && strcmp(P->surname, surname)) {
+	while (P != NULL && strcmp(P->surname, surname)) {
 		
 		before = before->Next;
 		P = P->Next;
 	}
 
-	if (P->Next == NULL)
+	if (P == NULL) {
+		printf("\nOsoba ne postoji");
 		return NULL;
+	}
+
 	else
 		return before;
 }
@@ -165,6 +188,65 @@ int Brisi_Osobu(Position P) {
 	before->Next = q->Next;
 	
 	free(q);
+
+	return 0;
+}
+
+int UnosIza(Position P) {
+
+	Position q = NULL;
+	
+	char surname[MAX_LENGHT] = { 0 };
+
+	q = (Position)malloc(sizeof(osoba));
+
+	if (q == NULL) {
+		printf("Neuspjelo alociranje memorije!\n");
+		return MEMORY_ALLOCATION_ERROR;
+	}
+
+	printf("\nUnesite prezime osobe iza koje zelite dodati novu osobu\n");
+	scanf(" %s", surname);
+
+	P = Pronadji_za_UnosIza(P, surname);
+
+	printf("\n---Unesite Osobu koju zelite dodati---\n");
+	UnosPodataka(q);
+
+	q->Next = P->Next;
+	P->Next = q;
+	
+	return 0;
+}
+
+int UnosIspred(Position P) {
+	
+	Position q = NULL;
+	char surname[MAX_LENGHT] = { 0 };
+
+	q = (Position)malloc(sizeof(osoba));
+
+	if (q == NULL) {
+		printf("Neuspjelo alociranje memorije!\n");
+		return MEMORY_ALLOCATION_ERROR;
+	}
+
+	printf("\nUnesite prezime ispred koje zelite dodati novu osobu\n");
+	scanf(" %s", surname);
+
+	if (P == NULL) {
+		printf("Osoba sa prezimenom %s nije pronađena.\n", surname);
+		free(q);
+		return ERROR_EXIT;
+	}
+
+	P = PronadjiPret(P, surname);
+
+	printf("\n---Unesite osobu koju zelite dodati---\n");
+	UnosPodataka(q);
+
+	q->Next = P->Next;
+	P->Next = q;
 
 	return 0;
 }
@@ -207,6 +289,8 @@ int main() {
 		printf("\n3 -> Dodavanje na kraj liste");
 		printf("\n4 -> Trazenje po prezimenu");
 		printf("\n5 -> Brisanje odredjene osobe");
+		printf("\n6 -> Unos iza osobe u listi");
+		printf("\n7 -> Unos ispred osobe u listi");
 
 		printf("\nIzbor -> ");
 
@@ -235,6 +319,14 @@ int main() {
 		
 		case '5':
 			Brisi_Osobu(Head);
+			break;
+		
+		case '6':
+			UnosIza(Head);
+			break;
+
+		case '7':
+			UnosIspred(Head);
 			break;
 
 		default:
