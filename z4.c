@@ -23,6 +23,7 @@ int Pointers(Position, Position);
 int ReadFile(Position, char*);
 int InsertSort(Position, Position);
 int ZbrojiPolinome(Position, Position, Position);
+int PomnoziPolinome(Position, Position, Position);
 int IspisListe(Position);
 int BrisiSve(Position);
 
@@ -34,6 +35,7 @@ int main() {
 	Position Head1 = NULL;
 	Position Head2 = NULL;
 	Position Head3 = NULL;
+	Position Head4 = NULL;
 
 
 	char file[MAX] = {"potencije.txt"};
@@ -41,17 +43,22 @@ int main() {
 	Head1 = Allocate();
 	Head2 = Allocate();
 	Head3 = Allocate();
+	Head4 = Allocate();
 	
 	ReadFile(Head1, file);
 
 	ZbrojiPolinome(Head1->Next,Head2->Next,Head3->Next);
 
-	IspisListe(Head3);
+	IspisListe(Head3->Next);
+
+	PomnoziPolinome(Head1->Next, Head2->Next, Head4->Next);
+
+	IspisListe(Head4->Next);
 
 	BrisiSve(Head1);
 	BrisiSve(Head2);
 	BrisiSve(Head3);
-	
+	BrisiSve(Head4);
 
 	return 0;
 }
@@ -273,6 +280,29 @@ int ZbrojiPolinome(Position Head1, Position Head2, Position Head3) {
 		InsertSort(Head3, New);
 
 		temp = temp->Next;
+	}
+
+	return EXIT_SUCCESS;
+}
+
+int PomnoziPolinome(Position P1, Position P2, Position P)
+{
+	Position poz1 = P1;
+	Position poz2 = P2;
+	Position p3 = NULL;
+
+	p3 = (Position)malloc(sizeof(Polinom));
+
+	while (poz1 != NULL)
+	{
+		poz2 = P2;
+		while (poz2 != NULL)
+		{
+			p3 = NewEnter(poz1->koef * poz2->koef, poz1->exp + poz2->exp);
+			InsertSort(P, poz1);
+			poz2 = poz2->Next;
+		}
+		poz1 = poz1->Next;
 	}
 
 	return EXIT_SUCCESS;
