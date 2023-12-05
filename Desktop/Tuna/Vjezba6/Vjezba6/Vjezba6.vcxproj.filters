@@ -15,21 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ZA_PRVI_ZDK.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Text.txt">
-      <Filter>Header Files</Filter>
-    </Text>
-    <Text Include="Text1.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Prvi_zadatak.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source.c">
+    <ClCompile Include="zdk6.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
