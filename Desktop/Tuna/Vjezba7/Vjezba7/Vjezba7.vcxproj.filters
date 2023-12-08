@@ -15,28 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="zdk6.c">
+    <ClCompile Include="z7.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="racun1.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="racun2.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="racun3.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="racun4.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="racun5.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="racuni.txt">
-      <Filter>Source Files</Filter>
-    </Text>
   </ItemGroup>
 </Project>

@@ -121,9 +121,9 @@ int main() {
 					}
 
 				}
-
+				racun = racun->Next;
 			}
-			racun = racun->Next;
+			
 
 			if (pom_art == NULL) {
 				printf("\tArtikl nije pronadjen\n");
@@ -138,9 +138,7 @@ int main() {
 			free(date1);
 			free(date2);
 		}
-	}
-
-	while (strcmp(name_art, "exit"));
+	}while (strcmp(name_art, "exit"));
 	DeleteALL(&Head);
 
 	return EXIT_SUCCESS;
