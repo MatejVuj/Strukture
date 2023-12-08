@@ -1,2 +1,5 @@
 ﻿  z7.c
-  Vjezba7.vcxproj -> C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Debug\Vjezba7.exe
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(55,31): warning C4047: 'function': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(55,27): warning C4024: 'CreateDirectory': different types for formal and actual parameter 2
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(107,20): warning C4047: 'return': 'Position' differs in levels of indirection from 'int'
+LINK : fatal error LNK1168: cannot open C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Debug\Vjezba7.exe for writing

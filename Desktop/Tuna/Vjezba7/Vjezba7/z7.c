@@ -11,7 +11,8 @@
 typedef struct Directory* Position;
 typedef struct Stack* StackPosition;
 typedef struct Directory {
-	int directory[MAX_NAME];
+
+	char name_dir[MAX_NAME];
 	Position child;
 	Position sibling;
 
@@ -24,11 +25,15 @@ typedef struct Stack {
 
 
 int ChoiseFunction(int);
-Position CreateDirectory(Position, char*);
+Position CreateDirectory(Position, char);
+int InsertName(Position);
+int PrintDIR(Position);
+Position ReturnToPreviousDIR(Position);
 
 int main() {
 
 	Directory Root, Current, prev;
+	Position temp, p;
 
 	Root.child = NULL;
 	Root.sibling = NULL;
@@ -43,24 +48,33 @@ int main() {
 
 	int insert = 0, choise = 0;
 
-	choise = ChoiseFunction(insert);
+	while(choise != 5) {
 
-	switch (choise) {
-	case 1:
-		break;
-	case 2:
-		break;
-	case 3:
-		break;
-	case 4:
-		break;
-	case 5:
-		break;
+		choise = ChoiseFunction(insert);
 
-	default:
-		printf("Niste odabrali mogucu DOS-NAREDBU");
+		switch (choise) {
+		case 1:
+			temp = CreateDirectory(&Root, NULL);
+			CurrentFunction(temp);
+			while (p->child != temp) {
+				p = p->child;
+			}
+			PrevFunction(p);
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			PrintDIR(Root.child);
+			break;
+		case 5:
+			break;
+
+		default:
+			printf("Niste odabrali mogucu DOS-NAREDBU");
+		}
 	}
-		
 
 
 	return 0;
@@ -74,18 +88,100 @@ ChoiseFunction(int choise) {
 	printf("\t3 - cd.. -> idi nazad\n");
 	printf("\t4 - dir -> ispisi sadrzaja direktorija\n");
 	printf("\t5 - izlaz\n");
-	printf("\tOdaberite naredbu\t");
+	printf("\tNaredba\t");
 	scanf("%d", &choise);
 
 	return choise;
 
 }
 
-Position CreateDirectory(Position Root, char* name) {
+int InsertName(Position q) {
 
-	gets(name);
-
-
-
-	return;
+	printf("\tUnesite naziv direktorija\t");
+	scanf(" %s", q->name_dir);
+	
+	return 0;
 }
+
+Position CreateDirectory(Position Root, char name) {
+
+	Position q = NULL;
+
+	q = (Position)malloc(sizeof(Directory));
+
+	if (q == NULL) {
+		printf("Neuspjela alokacija memorije CreateDirectory q");
+		return EXIT_ERROR;
+	}
+
+	name = InsertName(q);
+
+	while(Root->child != NULL)
+		Root = Root->child;
+	
+	q->child = Root->child;
+	Root->child = q;
+	q->sibling = Root->sibling;
+
+	return q;
+}
+
+int PrintDIR(Position p) {
+
+	Position q = NULL;
+	q = (Position)malloc(sizeof(Directory));
+
+	if (q == NULL) {
+		printf("\t\nNeuspjela alokacija memorije PrintDIR q\t");
+		return EXIT_ERROR;
+	}
+
+	printf("\n");
+	
+	while (p != NULL) {
+		printf("\t");
+		printf(" %s", p->name_dir);
+		p = p->child;
+	}
+
+	printf("\n");
+
+	return 0;
+}
+
+Position CurrentFunction(Position p) {
+
+	Position Current;
+
+	Current->child = NULL;
+	Current->sibling = NULL;
+
+	Current = p;
+
+	return Current;
+}
+
+Position PrevFunction(Position p) {
+
+	Position prev;
+
+	prev->child = NULL;
+	prev->sibling = NULL;
+
+	prev = p;
+
+	return prev;
+}
+
+Position ReturnToPreviousDIR(Position p) {
+
+	
+
+
+}
+
+
+
+
+
+

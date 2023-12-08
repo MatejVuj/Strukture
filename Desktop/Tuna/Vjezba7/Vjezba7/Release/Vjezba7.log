@@ -1,0 +1,5 @@
+﻿  z7.c
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(57,38): warning C4047: 'function': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(57,34): warning C4024: 'CreateDirectory': different types for formal and actual parameter 2
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(58,11): error C2063: 'Current': not a function
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(110,20): warning C4047: 'return': 'Position' differs in levels of indirection from 'int'
