@@ -8,9 +8,11 @@
 #define EXIT_ERROR -1
 #define EXIT_SUCCESS 0 
 
-typedef struct Directory* Position;
-typedef struct Stack* StackPosition;
-typedef struct Directory {
+struct directory;
+struct stack;
+typedef struct directory* Position;
+typedef struct stack* StackPosition;
+typedef struct directory {
 
 	char name_dir[MAX_NAME];
 	Position child;
@@ -18,55 +20,60 @@ typedef struct Directory {
 
 }Directory;
 
-typedef struct Stack {
+typedef struct stack {
 	Position dir;
 	StackPosition Next;
-}stack;
+}Stack;
 
 
 int ChoiseFunction(int);
-Position CreateDirectory(Position, char);
+Position CreateDirectory(Position, char*);
 int InsertName(Position);
 int PrintDIR(Position);
 Position ReturnToPreviousDIR(Position);
+Position ChangeDirectory(Position, StackPosition, char*);
 
 int main() {
+	Directory root = {
+		.name_dir = {0},
+		.child = NULL,
+		.sibling = NULL
+	};
 
-	Directory Root, Current, prev;
-	Position temp, p;
+	Stack st = {
+		.dir = NULL,
+	.Next = NULL
+	};
 
-	Root.child = NULL;
-	Root.sibling = NULL;
-	Current.child = NULL;
-	Current.sibling = NULL;
-	prev.child = NULL;
-	prev.sibling = NULL;
+	menu(&root,&st);
+	return 0;
+}
 
-	stack Head;
-	Head.Next = NULL;
-	Position p_root = &Root;
+int menu(Position p, StackPosition stog) {
+
+	Position Root = p;
+	Position current = p;
+
+	StackPosition rootstog = stog;
 
 	int insert = 0, choise = 0;
+	char name[MAX_NAME] = { 0 };
 
-	while(choise != 5) {
+	while (choise != 5) {
 
 		choise = ChoiseFunction(insert);
 
 		switch (choise) {
-		case 1:
-			temp = CreateDirectory(&Root, NULL);
-			CurrentFunction(temp);
-			while (p->child != temp) {
-				p = p->child;
-			}
-			PrevFunction(p);
+		case 1: 
+			current = CreateDirectory(current, name);
 			break;
 		case 2:
+			current = ChangeDirectory(current,stog,name);
 			break;
 		case 3:
 			break;
 		case 4:
-			PrintDIR(Root.child);
+			PrintDIR(current);
 			break;
 		case 5:
 			break;
@@ -82,7 +89,7 @@ int main() {
 
 ChoiseFunction(int choise) {
 
-	printf("\tMENI DOS-NAREDBI\t\n");
+	printf("\t\nMENI DOS-NAREDBI\t\n");
 	printf("\t1 - md -> stvara direktorij\n");
 	printf("\t2 - cd dir -> promjeni direktorij\n");
 	printf("\t3 - cd.. -> idi nazad\n");
@@ -103,9 +110,9 @@ int InsertName(Position q) {
 	return 0;
 }
 
-Position CreateDirectory(Position Root, char name) {
+Position CreateDirectory(Position Root, char* name) {
 
-	Position q = NULL;
+	Position q = NULL, current = Root;
 
 	q = (Position)malloc(sizeof(Directory));
 
@@ -113,35 +120,53 @@ Position CreateDirectory(Position Root, char name) {
 		printf("Neuspjela alokacija memorije CreateDirectory q");
 		return EXIT_ERROR;
 	}
+	
+	q->child = NULL;
+	q->sibling = NULL;
 
 	name = InsertName(q);
 
-	while(Root->child != NULL)
-		Root = Root->child;
-	
-	q->child = Root->child;
-	Root->child = q;
-	q->sibling = Root->sibling;
+	if (Root->child == NULL) {
+		//q->child = Root->child;
+		Root->child = q;
+		return q;
+	}
 
-	return q;
+	else {
+
+		if (Root->child->sibling != NULL && strcmp(Root->child->name_dir, q->name_dir)>0) {
+			q->child = Root->child;
+			Root->child = q;
+			return current;
+		}
+		
+		else {
+
+			Root = Root->child;
+
+			while (Root->sibling != NULL && strcmp(q->name_dir, Root->sibling->name_dir) <0) 
+				Root = Root->sibling;
+			
+			q->sibling = Root->sibling;
+			Root->sibling = q;
+		}
+	}
+	return current;
 }
 
 int PrintDIR(Position p) {
 
-	Position q = NULL;
-	q = (Position)malloc(sizeof(Directory));
+	p = p->child;
 
-	if (q == NULL) {
-		printf("\t\nNeuspjela alokacija memorije PrintDIR q\t");
-		return EXIT_ERROR;
+	if (p == NULL) {
+		printf("\t\nDirektorij je prazan\t");
 	}
-
 	printf("\n");
 	
 	while (p != NULL) {
 		printf("\t");
 		printf(" %s", p->name_dir);
-		p = p->child;
+		p = p->sibling;
 	}
 
 	printf("\n");
@@ -149,39 +174,83 @@ int PrintDIR(Position p) {
 	return 0;
 }
 
-Position CurrentFunction(Position p) {
+Position ChangeDirectory(Position p, StackPosition stack, char* name) {
 
-	Position Current;
+	Position temp = NULL;
+	Position q = (Position)malloc(sizeof(Directory));
 
-	Current->child = NULL;
-	Current->sibling = NULL;
+	temp = p->child;
 
-	Current = p;
+	q->child = NULL;
+	q->sibling = NULL;
 
-	return Current;
-}
+	name = InsertName(q);
 
-Position PrevFunction(Position p) {
+	if (temp == NULL) {
+		printf("\t\nNema se sta prominit\t");
+		return p;
+	}
 
-	Position prev;
-
-	prev->child = NULL;
-	prev->sibling = NULL;
-
-	prev = p;
-
-	return prev;
-}
-
-Position ReturnToPreviousDIR(Position p) {
-
+	else {
+		
+		while (temp != NULL) {
+			if (strcmp(temp->name_dir, q->name_dir) < 0) {
+				push(p, stack);
+				return temp;
+			}
+			temp = temp->child;
+		}
 	
+		if (temp == NULL) {
+			printf("\t\nDirektorij sa tim imenom ne postoji\t");
+		}
 
+		return p;
+	}
 
 }
 
+Position pop(StackPosition p) {
+	//mozda q ne ide NULL
+	StackPosition q = NULL;
+	Position temp = NULL;
 
+	if (p->Next == NULL) {
+		printf("\n\tPrazan Stog\t\n");
+		return EXIT_ERROR;
+	}
 
+	while (p->Next->Next != NULL)
+		p = p->Next;
+	
+	q = p->Next;
+	p->Next = q->Next;
+	temp = q->dir;
 
+	free(q);
 
+	return temp;
 
+}
+
+int push(Position current, StackPosition p) {
+
+	StackPosition q = NULL;
+
+	q = (StackPosition)malloc(sizeof(Directory));
+
+	if (q == NULL) {
+		printf("Greska u alokaciji memorije push q");
+		return EXIT_ERROR;
+	}
+
+	while (p->Next != NULL) 
+		p = p->Next;
+	
+	q->Next = p->Next;
+	p->Next = q;
+
+	q->dir = current;
+
+	return EXIT_SUCCESS;
+}

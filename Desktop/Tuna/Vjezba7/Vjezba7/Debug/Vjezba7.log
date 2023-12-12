@@ -1,5 +1,12 @@
 ﻿  z7.c
-C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(55,31): warning C4047: 'function': 'char' differs in levels of indirection from 'void *'
-C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(55,27): warning C4024: 'CreateDirectory': different types for formal and actual parameter 2
-C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(107,20): warning C4047: 'return': 'Position' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(58,32): warning C4047: 'function': 'char' differs in levels of indirection from 'char [50]'
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(58,28): warning C4024: 'CreateDirectory': different types for formal and actual parameter 2
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(37,18): warning C4101: 'Current': unreferenced local variable
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(38,17): warning C4101: 'p': unreferenced local variable
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(38,20): warning C4101: 'q': unreferenced local variable
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(38,11): warning C4101: 'temp': unreferenced local variable
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(37,27): warning C4101: 'prev': unreferenced local variable
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(102,47): warning C4028: formal parameter 2 different from declaration
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(110,20): warning C4047: 'return': 'Position' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(171,20): warning C4047: 'return': 'Position' differs in levels of indirection from 'int'
 LINK : fatal error LNK1168: cannot open C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Debug\Vjezba7.exe for writing
