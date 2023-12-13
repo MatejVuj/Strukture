@@ -30,8 +30,10 @@ int ChoiseFunction(int);
 Position CreateDirectory(Position, char*);
 int InsertName(Position);
 int PrintDIR(Position);
-Position ReturnToPreviousDIR(Position);
 Position ChangeDirectory(Position, StackPosition, char*);
+Position ReturnOneBack(StackPosition);
+Position pop(StackPosition);
+int push(Position, StackPosition);
 
 int main() {
 	Directory root = {
@@ -40,24 +42,40 @@ int main() {
 		.sibling = NULL
 	};
 
-	Stack st = {
-		.dir = NULL,
-	.Next = NULL
+	Directory current = {
+		.name_dir = {0},
+		.child = NULL,
+		.sibling = NULL
 	};
 
-	menu(&root,&st);
+	Directory previous = {
+		.name_dir = {0},
+		.child = NULL,
+		.sibling = NULL
+	};
+
+	Stack st = {
+		.dir = NULL,
+		.Next = NULL
+	};
+
+	menu(&root,&current,&previous,&st);
 	return 0;
 }
 
-int menu(Position p, StackPosition stog) {
-
-	Position Root = p;
-	Position current = p;
+int menu(Position p, Position cur, Position prev, StackPosition stog) {
 
 	StackPosition rootstog = stog;
 
 	int insert = 0, choise = 0;
 	char name[MAX_NAME] = { 0 };
+
+	Position Root = CreateDirectory(p, "C:");
+	p->child = Root;
+
+	Position current = Root;
+
+	push(current, stog);
 
 	while (choise != 5) {
 
@@ -65,12 +83,21 @@ int menu(Position p, StackPosition stog) {
 
 		switch (choise) {
 		case 1: 
+			printf("\t\nUnesite ime dirtektorija\t");
+			scanf(" %s", name);
 			current = CreateDirectory(current, name);
 			break;
 		case 2:
+			printf("\t\nUnesite ime u kojem se dirtektoriju zelite nalazit\t");
+			scanf(" %s", name);
 			current = ChangeDirectory(current,stog,name);
+			push(current,stog);
 			break;
 		case 3:
+			if (current != Root) {
+				current= pop(stog);
+				printf("Nalazite se u %s direktoriju", current->name_dir);
+			}
 			break;
 		case 4:
 			PrintDIR(current);
@@ -83,13 +110,12 @@ int menu(Position p, StackPosition stog) {
 		}
 	}
 
-
 	return 0;
 }
 
-ChoiseFunction(int choise) {
+int ChoiseFunction(int choise) {
 
-	printf("\t\nMENI DOS-NAREDBI\t\n");
+	printf("\t\t\nMENI DOS-NAREDBI\t\n");
 	printf("\t1 - md -> stvara direktorij\n");
 	printf("\t2 - cd dir -> promjeni direktorij\n");
 	printf("\t3 - cd.. -> idi nazad\n");
@@ -105,7 +131,7 @@ ChoiseFunction(int choise) {
 int InsertName(Position q) {
 
 	printf("\tUnesite naziv direktorija\t");
-	scanf(" %s", q->name_dir);
+	sscanf(" %s", q->name_dir);
 	
 	return 0;
 }
@@ -121,10 +147,11 @@ Position CreateDirectory(Position Root, char* name) {
 		return EXIT_ERROR;
 	}
 	
+	//name = InsertName(q);
+
+	strcpy(q->name_dir, name);
 	q->child = NULL;
 	q->sibling = NULL;
-
-	name = InsertName(q);
 
 	if (Root->child == NULL) {
 		//q->child = Root->child;
@@ -134,80 +161,82 @@ Position CreateDirectory(Position Root, char* name) {
 
 	else {
 
-		if (Root->child->sibling != NULL && strcmp(Root->child->name_dir, q->name_dir)>0) {
-			q->child = Root->child;
+		if (strcmp(Root->child->name_dir, name) > 0 ) {
+			q->sibling = Root->child;
 			Root->child = q;
-			return current;
+			return q;
 		}
 		
-		else {
+		/*else {
 
 			Root = Root->child;
 
-			while (Root->sibling != NULL && strcmp(q->name_dir, Root->sibling->name_dir) <0) 
+			while (strcmp(name, Root->sibling->name_dir)) 
 				Root = Root->sibling;
 			
 			q->sibling = Root->sibling;
 			Root->sibling = q;
-		}
+		}*/
 	}
-	return current;
+	//return q;
 }
 
 int PrintDIR(Position p) {
 
-	p = p->child;
+	Position temp = NULL;
 
-	if (p == NULL) {
+	temp = p->child;
+	
+	while (temp != NULL) {
+		printf("\t");
+		printf(" %s", temp->name_dir);
+		temp = temp->sibling;
+	}
+
+	printf("\n");
+
+	if (temp == NULL) {
 		printf("\t\nDirektorij je prazan\t");
 	}
-	printf("\n");
-	
-	while (p != NULL) {
-		printf("\t");
-		printf(" %s", p->name_dir);
-		p = p->sibling;
-	}
-
 	printf("\n");
 
 	return 0;
 }
 
-Position ChangeDirectory(Position p, StackPosition stack, char* name) {
+int Highway(Position current) {
 
-	Position temp = NULL;
-	Position q = (Position)malloc(sizeof(Directory));
+	char name[MAX_NAME] = { 0 };
 
-	temp = p->child;
+	StackPosition qs = (StackPosition)malloc(sizeof(Stack));
 
-	q->child = NULL;
-	q->sibling = NULL;
-
-	name = InsertName(q);
-
-	if (temp == NULL) {
-		printf("\t\nNema se sta prominit\t");
-		return p;
+	if (qs == NULL) {
+		printf("\t\nNeuspjela alokacija memorije\t");
+		return EXIT_ERROR;
 	}
 
-	else {
-		
-		while (temp != NULL) {
-			if (strcmp(temp->name_dir, q->name_dir) < 0) {
-				push(p, stack);
-				return temp;
-			}
-			temp = temp->child;
-		}
+	qs->dir = current;
+	qs->Next = NULL;
+
+	return qs;
+}
+
+int push(Position current, StackPosition stog) {
+
+	StackPosition q = NULL;
+
+	q = (StackPosition)malloc(sizeof(Stack));
+
+	if (q == NULL) {
+		printf("Greska u alokaciji memorije push q");
+		return EXIT_ERROR;
+	}
+
+	q = Highway(current);
 	
-		if (temp == NULL) {
-			printf("\t\nDirektorij sa tim imenom ne postoji\t");
-		}
+	q->Next = stog->Next;
+	stog->Next = q;
 
-		return p;
-	}
-
+	return EXIT_SUCCESS;
 }
 
 Position pop(StackPosition p) {
@@ -217,15 +246,15 @@ Position pop(StackPosition p) {
 
 	if (p->Next == NULL) {
 		printf("\n\tPrazan Stog\t\n");
-		return EXIT_ERROR;
+		return NULL;
 	}
 
-	while (p->Next->Next != NULL)
-		p = p->Next;
-	
+	/*while (p->Next->Next != NULL)
+		p = p->Next;*/
+
 	q = p->Next;
+	temp = p->Next->dir;
 	p->Next = q->Next;
-	temp = q->dir;
 
 	free(q);
 
@@ -233,24 +262,30 @@ Position pop(StackPosition p) {
 
 }
 
-int push(Position current, StackPosition p) {
+Position ReturnOneBack(StackPosition stog) {
+	return pop(stog);
+}
 
-	StackPosition q = NULL;
+Position ChangeDirectory(Position p, StackPosition stack, char* name) {
 
-	q = (StackPosition)malloc(sizeof(Directory));
+	p = p->child;
 
-	if (q == NULL) {
-		printf("Greska u alokaciji memorije push q");
-		return EXIT_ERROR;
+	if (strcmp(p->name_dir, name) == 0) {
+		return p;
 	}
 
-	while (p->Next != NULL) 
-		p = p->Next;
+	while (p != NULL && strcmp(p->name_dir, name) == 0) {
+		return p;
+		p = p->child;
+	}
+
+	if (p == NULL || strcmp(p->name_dir, name) != 0) {
+		printf("\t\nDirektorij sa tim imenom ne postoji\t");
+		return p;
+	}
+
+	else push(p, stack);
 	
-	q->Next = p->Next;
-	p->Next = q;
+	return p;
 
-	q->dir = current;
-
-	return EXIT_SUCCESS;
 }
