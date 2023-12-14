@@ -1,0 +1,4 @@
+﻿  zad8.c
+C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Vjezba8\zad8.c(95,20): warning C4047: 'return': 'Position' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Vjezba8\zad8.c(117): warning C4716: 'Insert': must return a value
+  Vjezba8.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Debug\Vjezba8.exe
