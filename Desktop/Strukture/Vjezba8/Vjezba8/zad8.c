@@ -20,43 +20,47 @@ typedef struct node {
 }Node;
 
 int menu(int);
-Position Insert(Position, int);
-Position Create(int);
+int Inorder(Position);
+int Preorder(Position);
+int Postorder(Position);
+int Levelorder(Position);
+Position Insert(Position, Position);
+Position Create(Position, int);
 
 int main(){
 
-	Node root = {
-		.el = 0,
-		.left = NULL,
-		.right = NULL
-	};
-
-	Position Root = &root;
+	Position Root = NULL;
+	Position q;
 
 	int insert = 0, choise = 0;
 	int number = 0;
-	int rootnumber = 0;
-
-	printf("\n\tUnesite broj za root\t");
-	scanf("%d", &rootnumber);
-	Root = Insert(Root, rootnumber);
 
 	while (choise != 9) {
 		choise = menu(insert);
 		switch (choise) {
-			break;
 		case 1:
 			printf("\n\tUnesite broj\t");
 			scanf("%d", &number);
-			Insert(Root, number);
+			q = Create(Root, number);
+			Root = Insert(Root,q);
 			break;
 		case 2:
+			printf("\n\tInorder: ");
+			Inorder(Root);
+			printf("\n");
 			break;
 		case 3:
+			printf("\n\tPostorder: ");
+			Postorder(Root);
+			printf("\n");
 			break;
 		case 4:
+			printf("\n\tPreorder: ");
+			Preorder(Root);
+			printf("\n");
 			break;
 		case 5:
+			//Levelorder(Root);
 			break;
 
 		case 9:
@@ -66,6 +70,8 @@ int main(){
 			printf("\n\tNiste odabrali mogucu NAREDBU");
 		}
 	}
+
+	free(Root);
 
 	return 0;
 }
@@ -85,14 +91,13 @@ int menu(int choise) {
 	return choise;
 }
 
-Position Create(int number) {
+Position Create(Position p, int number) {
 
-	Position p;
 	p = (Position)malloc(sizeof(Node));
 
 	if (p == NULL) {
 		printf("\n\tNeuspjela alokacija memorije");
-		return EXIT_ERROR;
+		return NULL;
 	}
 
 	p->el = number;
@@ -102,17 +107,51 @@ Position Create(int number) {
 	return p;
 }
 
-Position Insert(Position root, int number) {
+Position Insert(Position p, Position q) {
 
-	if (root == NULL)
-		Create(number);
+	if (p == NULL)
+		return q;
 
-	else if (root->left > root->right)
-		root->left = Insert(root->left, number);
+	else if (p->el > q->el)
+		p->left = Insert(p->left, q);
 
+	else //if (p->el < p->el)
+		p->right = Insert(p->right, q);
 
-	else if (root->left < root->right)
-		root->right = Insert(root->right, number);
+	return p;
+}
 
-	return root;
+int Inorder(Position p) {
+
+	if (p == NULL)
+			return EXIT_SUCCESS;
+	Inorder(p->left);
+	printf("%d ", p->el);
+	Inorder(p->right);
+	return EXIT_SUCCESS;
+	
+}
+
+int Postorder(Position p) {
+
+	if (p == NULL)
+		return EXIT_SUCCESS;
+
+	Postorder(p->left);
+	Postorder(p->right);
+	printf("%d ", p->el);
+	return EXIT_SUCCESS;
+
+}
+
+int Preorder(Position p) {
+
+	if (p == NULL)
+		return EXIT_SUCCESS;
+
+	printf("%d ", p->el);
+	Preorder(p->left);
+	Preorder(p->right);
+	return EXIT_SUCCESS;
+
 }
