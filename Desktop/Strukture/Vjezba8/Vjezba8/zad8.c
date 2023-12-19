@@ -120,6 +120,7 @@ Position Insert(Position p, Position q) {
 
 	return p;
 }
+<<<<<<< HEAD
 
 int Inorder(Position p) {
 
@@ -155,3 +156,40 @@ int Preorder(Position p) {
 	return EXIT_SUCCESS;
 
 }
+=======
+
+int Inorder(Position p) {
+
+	if (p == NULL)
+			return EXIT_SUCCESS;
+	Inorder(p->left);
+	printf("%d ", p->el);
+	Inorder(p->right);
+	return EXIT_SUCCESS;
+	
+}
+
+int Postorder(Position p) {
+
+	if (p == NULL)
+		return EXIT_SUCCESS;
+
+	Postorder(p->left);
+	Postorder(p->right);
+	printf("%d ", p->el);
+	return EXIT_SUCCESS;
+
+}
+
+int Preorder(Position p) {
+
+	if (p == NULL)
+		return EXIT_SUCCESS;
+
+	printf("%d ", p->el);
+	Preorder(p->left);
+	Preorder(p->right);
+	return EXIT_SUCCESS;
+
+}
+>>>>>>> 4953d7f65a0c359f7ce5a9fc819d19ea6423be98
