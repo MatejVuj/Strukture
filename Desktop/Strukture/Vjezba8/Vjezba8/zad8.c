@@ -24,6 +24,8 @@ int Inorder(Position);
 int Preorder(Position);
 int Postorder(Position);
 int Levelorder(Position);
+int Height(Position);
+int CurrentLevel(Position, int);
 Position Insert(Position, Position);
 Position Create(Position, int);
 
@@ -60,7 +62,9 @@ int main(){
 			printf("\n");
 			break;
 		case 5:
-			//Levelorder(Root);
+			printf("\n\tLevelorder: ");
+			Levelorder(Root);
+			printf("\n");
 			break;
 
 		case 9:
@@ -92,7 +96,7 @@ int menu(int choise) {
 }
 
 Position Create(Position p, int number) {
-
+	//stvara element prije postavljanja u stablo
 	p = (Position)malloc(sizeof(Node));
 
 	if (p == NULL) {
@@ -108,7 +112,7 @@ Position Create(Position p, int number) {
 }
 
 Position Insert(Position p, Position q) {
-
+	//Inserta u elemetnt u stablo
 	if (p == NULL)
 		return q;
 
@@ -120,7 +124,7 @@ Position Insert(Position p, Position q) {
 
 	return p;
 }
-<<<<<<< HEAD
+
 
 int Inorder(Position p) {
 
@@ -156,40 +160,55 @@ int Preorder(Position p) {
 	return EXIT_SUCCESS;
 
 }
-=======
 
-int Inorder(Position p) {
+int Levelorder(Position p) {
+
+	int h = Height(p);
+	int i = 0;
+
+	for (i = 1; i <= h; i++) {
+		CurrentLevel(p, i);
+	}
+	return EXIT_SUCCESS;
+}
+
+int Height(Position p) {
+	//od roota do kraja stabla tj. zadnjeg lsita
+
+	int right = 0;
+	int left = 0;
 
 	if (p == NULL)
-			return EXIT_SUCCESS;
-	Inorder(p->left);
-	printf("%d ", p->el);
-	Inorder(p->right);
-	return EXIT_SUCCESS;
+		return EXIT_SUCCESS;
+
+	else {
 	
+		left = Height(p->left);
+		right = Height(p->right);
+
+		if (left > right) 
+			return (left + 1);
+		
+		else 
+			return (right + 1);
+		
+	}
+
 }
 
-int Postorder(Position p) {
-
+int CurrentLevel(Position p, int level) {
+	//printa trenutni level
 	if (p == NULL)
 		return EXIT_SUCCESS;
 
-	Postorder(p->left);
-	Postorder(p->right);
-	printf("%d ", p->el);
+	if (level == 1)
+		printf("%d ", p->el);
+
+	else if (level > 1) {
+		CurrentLevel(p->left, level - 1);
+		CurrentLevel(p->right, level - 1);
+	}
+
 	return EXIT_SUCCESS;
 
 }
-
-int Preorder(Position p) {
-
-	if (p == NULL)
-		return EXIT_SUCCESS;
-
-	printf("%d ", p->el);
-	Preorder(p->left);
-	Preorder(p->right);
-	return EXIT_SUCCESS;
-
-}
->>>>>>> 4953d7f65a0c359f7ce5a9fc819d19ea6423be98
