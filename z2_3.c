@@ -1,4 +1,3 @@
-
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
@@ -36,11 +35,16 @@ int UnosIspred(Position);
 
 int Brisi_Osobu(Position);
 
+int UpisUDatoteku(Position, char*);
+
+int CitanjeIzDatoteke(Position, char*);
+
+int IspisListe(Position P);
+
 Position Pronadji(Position);
 
 Position PronadjiPret(Position, char*);
 
-Position PronadjiPret(Position, char*);
 
 int UnosPodataka(Position q)
 {
@@ -251,6 +255,67 @@ int UnosIspred(Position P) {
 	return 0;
 }
 
+int UpisUDatoteku(Position P, char* file)
+{
+	FILE* fp = NULL;
+	fp = fopen(file, "a");
+	if (fp == NULL)
+	{
+		printf("Neuspjesno otvaranje datoteke!\n");
+		return ERROR_EXIT;
+	}
+	while (P != NULL)
+	{
+		fprintf(fp, "Student: %-20s %-20s, godina: %4d\n", P->name, P->surname, P->year);
+		P = P->Next;
+	}
+	fclose(fp);
+
+	return EXIT_SUCCESS;
+}
+
+int CitanjeIzDatoteke(Position P, char* file)
+{
+	FILE* fp = NULL;
+	int pom = 0, n = 0, godina = 0;
+	char ime[MAX_LENGHT] = { 0 }, prezime[MAX_LENGHT] = { 0 }, pomocna[MAX_LENGHT] = { 0 };
+	fp = fopen(file, "r");
+	char buff[MAX_LENGHT] = { 0 };
+	char* b = buff;
+	if (fp == NULL)
+	{
+		printf("Neuspjesno otvaranje datoteke!\n");
+		return ERROR_EXIT;
+	}
+
+	while (P != NULL)
+	{
+		fscanf(fp, "Student:%s %s, godina %d", P->name, P->surname, &P->year);
+		P = P->Next;
+	}
+
+	fclose(fp);
+
+	return EXIT_SUCCESS;
+}
+
+int IspisListe(Position P)
+{
+	if (P == NULL)
+	{
+		printf("Lista je prazna!\n");
+		return ERROR_EXIT;
+	}
+
+	while (P != NULL)
+	{
+		printf("Ime: %s\nPrezime: %s\nGodina rodenja: %d\n", P->name, P->surname, P->year);
+		P = P->Next;
+	}
+
+	return EXIT_SUCCESS;
+}
+
 void OslobodiMemoriju(Position P){
 	while (P->Next != NULL)
 	{
@@ -267,6 +332,8 @@ int main() {
 	Position Head;
 	char insert = 0;
 	//char surname[MAX_LENGHT] = {0};
+	char file[MAX_LENGHT] = { 0 };
+	char file2[MAX_LENGHT] = { 0 };
 
 	Head = NULL;
 
@@ -291,6 +358,8 @@ int main() {
 		printf("\n5 -> Brisanje odredjene osobe");
 		printf("\n6 -> Unos iza osobe u listi");
 		printf("\n7 -> Unos ispred osobe u listi");
+		printf("\n8 -> Upis u datoteku");
+		printf("\n9 -> Citanje iz datoteke");
 
 		printf("\nIzbor -> ");
 
@@ -327,6 +396,24 @@ int main() {
 
 		case '7':
 			UnosIspred(Head);
+			break;
+
+		case '8':
+			printf("Unesite ime datoteke:\n");
+			scanf(" %s", file);
+			UpisUDatoteku(Head->Next, file);
+			IspisListe(Head->Next);
+			break;
+
+		case '9':
+			printf("Unesite ime datoteke:\n");
+			scanf(" %s", file2);
+			printf("\n");
+			CitanjeIzDatoteke(Head->Next, file2);
+			break;
+
+		case '10':
+			printf("Kraj programa. Adio!");
 			break;
 
 		default:
