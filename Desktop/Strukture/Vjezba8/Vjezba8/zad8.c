@@ -412,18 +412,17 @@ int InorderFile(Position p) {
 		return EXIT_ERROR;
 	}
 
-	else {
-
+	
 		if (p == NULL)
 			return EXIT_SUCCESS;
 
-		Inorder(p->left, fp);
+		InorderFile(p->left);
 		fprintf(fp, "%d ", p->el);
-		Inorder(p->right, fp);
+		InorderFile(p->right);
 		return EXIT_SUCCESS;
 
 		fclose(fp);
 
 		return EXIT_SUCCESS;
-	}
+	
 }

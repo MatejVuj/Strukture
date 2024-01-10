@@ -3,6 +3,4 @@ C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Vjezba8\zad8.c(303,30): warning C404
 C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Vjezba8\zad8.c(303,26): warning C4024: 'FindElement': different types for formal and actual parameter 1
 C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Vjezba8\zad8.c(308,31): warning C4047: 'function': 'Position' differs in levels of indirection from 'int'
 C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Vjezba8\zad8.c(308,27): warning C4024: 'FindElement': different types for formal and actual parameter 1
-C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Vjezba8\zad8.c(420,20): warning C4020: 'Inorder': too many actual parameters
-C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Vjezba8\zad8.c(422,21): warning C4020: 'Inorder': too many actual parameters
   Vjezba8.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Vjezba8\Debug\Vjezba8.exe
