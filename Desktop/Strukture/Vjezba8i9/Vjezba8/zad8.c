@@ -24,7 +24,7 @@ typedef struct node {
 
 int menu(int);
 int Inorder(Position);
-int InorderFile(Positionb);
+int InorderFile(Position);
 int Preorder(Position);
 int Postorder(Position);
 int Levelorder(Position);
@@ -32,6 +32,7 @@ int Height(Position);
 int CurrentLevel(Position, int);
 int Replace(Position);
 int rnd();
+int DeleteAll(Position);
 int PrintInFile(Position, char*);
 Position Insert(Position, Position);
 Position Create(Position, int);
@@ -39,7 +40,7 @@ Position FindElement(Position, int);
 Position DeleteElement(Position, int);
 Position FindMax(Position);
 Position FindMin(Position);
-int DeleteAll(Position);
+
 
 int main(){
 
@@ -399,30 +400,30 @@ int rnd() {
 	return number;
 }
 
+int InOrderF(Position p, FILE* fp) {
+
+	if (p == NULL)
+		return EXIT_SUCCESS;
+	InOrderF(p->left, fp);
+	fprintf(fp, "%d ", p->el);
+	InOrderF(p->right, fp);
+	return EXIT_SUCCESS;
+
+}
+
 int InorderFile(Position p) {
 
-	char file[MAX_NAME] = {"inorder.txt"};
-
 	FILE* fp = NULL;
-	fp = fopen(file, "w");
+	fp = fopen("inorder.txt", "w");
 
-	if (fp == NULL)
-	{
+	if (fp == NULL){
 		printf("Error in file opening!\n");
 		return EXIT_ERROR;
 	}
 
-	
-		if (p == NULL)
-			return EXIT_SUCCESS;
+	InOrderF(p, fp);
+	fclose(fp);
 
-		InorderFile(p->left);
-		fprintf(fp, "%d ", p->el);
-		InorderFile(p->right);
-		return EXIT_SUCCESS;
-
-		fclose(fp);
-
-		return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 	
 }

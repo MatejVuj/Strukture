@@ -1,8 +1,1 @@
-﻿  zdk6.c
-C:\Users\Korisnik\Desktop\Tuna\Vjezba6\Vjezba6\zdk6.c(69,6): warning C4013: 'gets' undefined; assuming extern returning int
-C:\Users\Korisnik\Desktop\Tuna\Vjezba6\Vjezba6\zdk6.c(194,25): warning C4047: 'return': 'RPosition' differs in levels of indirection from 'int'
-C:\Users\Korisnik\Desktop\Tuna\Vjezba6\Vjezba6\zdk6.c(203,26): warning C4047: 'return': 'RPosition' differs in levels of indirection from 'int'
-C:\Users\Korisnik\Desktop\Tuna\Vjezba6\Vjezba6\zdk6.c(270,26): warning C4047: 'return': 'DPosition' differs in levels of indirection from 'int'
-C:\Users\Korisnik\Desktop\Tuna\Vjezba6\Vjezba6\zdk6.c(285,26): warning C4047: 'return': 'APosition' differs in levels of indirection from 'int'
-C:\Users\Korisnik\Desktop\Tuna\Vjezba6\Vjezba6\zdk6.c(260): warning C4716: 'InicArticle': must return a value
-  Vjezba6.vcxproj -> C:\Users\Korisnik\Desktop\Tuna\Vjezba6\Debug\Vjezba6.exe
+﻿  Vjezba6.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Vjezba6\Debug\Vjezba6.exe
