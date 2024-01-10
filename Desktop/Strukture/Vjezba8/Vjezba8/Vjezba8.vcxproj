@@ -141,6 +141,10 @@
   <ItemGroup>
     <ClCompile Include="zad8.c" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="inorder.txt" />
+    <Text Include="Text.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
