@@ -4,11 +4,11 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#define ERROR_ALLOCATION -2
-#define ERROR_FILE_OPEN -1
-#define MAX_LENGHT 256
-#define MAX_RED 1024
-#define MAX_NAME 128
+#define ERROR_ALLOCATION (-2)
+#define ERROR_FILE_OPEN (-1)
+#define MAX_LENGHT (256)
+#define MAX_RED (1024)
+#define MAX_NAME (128)
 
 //lista pojedinog racuna sa artiklima
 struct Article;
@@ -65,7 +65,7 @@ int main() {
 	DPosition date1, date2 = NULL;
 	RPosition racun = &Head;
 
-	printf("Unesite ime datoteke");
+	printf("Unesite ime datoteke\t");
 	gets(name_file);
 	pom = ReadFile(racun, name_file);
 
@@ -132,7 +132,7 @@ int main() {
 			else {
 
 				printf("\tArtikl %s je kupljen %d puta \n\t Ukupna kolicna: %.2f\n\t Zarada: %.2f $\n", pom_art->name_article, no_art, amount_art, amount_art * pom_art->price);
-
+				printf("*****\n");
 			}
 
 			free(date1);
@@ -256,7 +256,7 @@ int InicArticle(APosition article) {
 	article->amount = 0;
 	memset(article->name_article, 0, MAX_NAME);
 	article->Next = NULL;
-
+	return EXIT_SUCCESS;
 }
 
 DPosition InsertDate(char* buffer) {
@@ -270,7 +270,7 @@ DPosition InsertDate(char* buffer) {
 		return ERROR_ALLOCATION;
 	}
 
-	sscanf(p_buffer, "%d - %d - %d", &q->year, &q->month, &q->day);
+	sscanf(p_buffer, "%d-%d-%d", &q->year, &q->month, &q->day);
 
 	return q;
 }
@@ -307,8 +307,9 @@ int InsertSortArticle(APosition Head, APosition article) {
 int InsertSortRacun(RPosition racun, RPosition q) {
 	
 	RPosition p = racun;
-
+											/*->Next*/
 	while (p->Next != NULL && DateCompare(p->Next->date, q->date) < 0) {
+		printf("\n1\n");
 		p = p->Next;
 	}
 	q->Next = p->Next;
@@ -352,9 +353,9 @@ int PrintArticle(APosition p) {
 	p = p->Next;
 
 	while (p != NULL) {
-		printf("%*s", 22, p->name_article);
-		printf("%*.2f ", 5, p->amount);
-		printf("%*.2f ", 11, p->price);
+		printf("%*s",22,p->name_article);
+		printf("%*.2f ",5,p->amount);
+		printf("%*.2f ",11,p->price);
 		printf("\n");
 		p = p->Next;
 	}

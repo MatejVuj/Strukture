@@ -1,6 +1,7 @@
-﻿  zad8.c
-C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Vjezba8\zad8.c(304,30): warning C4047: 'function': 'Position' differs in levels of indirection from 'int'
-C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Vjezba8\zad8.c(304,26): warning C4024: 'FindElement': different types for formal and actual parameter 1
-C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Vjezba8\zad8.c(309,31): warning C4047: 'function': 'Position' differs in levels of indirection from 'int'
-C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Vjezba8\zad8.c(309,27): warning C4024: 'FindElement': different types for formal and actual parameter 1
+﻿  zad8i9.c
+C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Vjezba8\zad8i9.c(56,6): warning C4013: 'gets' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Vjezba8\zad8i9.c(307,30): warning C4047: 'function': 'Position' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Vjezba8\zad8i9.c(307,26): warning C4024: 'FindElement': different types for formal and actual parameter 1
+C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Vjezba8\zad8i9.c(312,31): warning C4047: 'function': 'Position' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Vjezba8\zad8i9.c(312,27): warning C4024: 'FindElement': different types for formal and actual parameter 1
   Vjezba8.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Vjezba8i9\Debug\Vjezba8.exe

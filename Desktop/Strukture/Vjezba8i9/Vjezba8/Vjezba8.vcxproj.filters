@@ -15,15 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="zad8.c">
+    <ClCompile Include="zad8i9.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="inorder.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="Text.txt">
+    <Text Include="brojevi.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

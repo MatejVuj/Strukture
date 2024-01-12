@@ -24,7 +24,7 @@ typedef struct node {
 
 int menu(int);
 int Inorder(Position);
-int InorderFile(Position);
+int InorderFile(Position, char*);
 int Preorder(Position);
 int Postorder(Position);
 int Levelorder(Position);
@@ -33,7 +33,7 @@ int CurrentLevel(Position, int);
 int Replace(Position);
 int rnd();
 int DeleteAll(Position);
-int PrintInFile(Position, char*);
+//int PrintInFile(Position, char*);
 Position Insert(Position, Position);
 Position Create(Position, int);
 Position FindElement(Position, int);
@@ -50,7 +50,10 @@ int main(){
 	int insert = 0, choise = 0;
 	int number = 0;
 	int i = 0, n = 10;
-
+	//char file[MAX_LINE] ="brojevi.txt";
+	char file[MAX_LINE] = { 0 };
+	printf("\tUnesite ime datoteke\t");
+	gets(file);
 	//srand(unsigned(time(0)));
 
 	Position element;
@@ -130,7 +133,7 @@ int main(){
 			break;
 
 		case 9:
-			InorderFile(Root);
+			InorderFile(Root, file);
 			break;
 
 		case 11:
@@ -411,10 +414,9 @@ int InOrderF(Position p, FILE* fp) {
 
 }
 
-int InorderFile(Position p) {
+int InorderFile(Position p, char* filename) {
 
-	FILE* fp = NULL;
-	fp = fopen("inorder.txt", "w");
+	FILE* fp = fopen(filename, "w");
 
 	if (fp == NULL){
 		printf("Error in file opening!\n");

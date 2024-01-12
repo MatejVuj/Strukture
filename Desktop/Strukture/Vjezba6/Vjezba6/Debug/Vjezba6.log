@@ -1,1 +1,3 @@
-﻿  Vjezba6.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Vjezba6\Debug\Vjezba6.exe
+﻿  zdk6.c
+C:\Users\Korisnik\Desktop\Strukture\Vjezba6\Vjezba6\zdk6.c(66,6): warning C4013: 'gets' undefined; assuming extern returning int
+  Vjezba6.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Vjezba6\Debug\Vjezba6.exe
