@@ -1,3 +1,5 @@
 ﻿  zdk6.c
-C:\Users\Korisnik\Desktop\Strukture\Vjezba6\Vjezba6\zdk6.c(66,6): warning C4013: 'gets' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\Strukture\Vjezba6\Vjezba6\zdk6.c(70,6): warning C4013: 'gets' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\Strukture\Vjezba6\Vjezba6\zdk6.c(107,46): warning C4133: 'function': incompatible types - from 'Article *' to 'char *'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba6\Vjezba6\zdk6.c(107,48): warning C4020: 'InsertArticle': too many actual parameters
   Vjezba6.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Vjezba6\Debug\Vjezba6.exe
