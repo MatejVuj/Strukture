@@ -1,0 +1,31 @@
+﻿  Projekt.c
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(109,39): warning C4020: 'borrow_book': too many actual parameters
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(110,39): warning C4020: 'borrow_book': too many actual parameters
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(111,39): warning C4020: 'borrow_book': too many actual parameters
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(112,39): warning C4020: 'borrow_book': too many actual parameters
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(113,39): warning C4020: 'borrow_book': too many actual parameters
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(117,39): warning C4020: 'borrow_book': too many actual parameters
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(121,39): warning C4020: 'borrow_book': too many actual parameters
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(125,39): warning C4020: 'borrow_book': too many actual parameters
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(151,30): warning C4028: formal parameter 1 different from declaration
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(151,76): warning C4029: declared formal parameter list different from definition
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(211,26): warning C4477: 'sscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 2 has type 'int'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(212,26): warning C4047: 'function': 'UPosition' differs in levels of indirection from 'UPosition *'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(212,22): warning C4024: 'add_user': different types for formal and actual parameter 1
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(286,96): warning C4029: declared formal parameter list different from definition
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(288,66): warning C4090: 'function': different 'const' qualifiers
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(296,56): warning C4090: 'function': different 'const' qualifiers
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(303,58): warning C4013: 'books_borrowed_count' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(331,58): warning C4028: formal parameter 2 different from declaration
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(343,49): warning C4028: formal parameter 2 different from declaration
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(353,26): warning C4047: 'function': 'UPosition' differs in levels of indirection from 'UPosition *'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(353,21): warning C4024: 'add_user': different types for formal and actual parameter 1
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(353,32): warning C4090: 'function': different 'const' qualifiers
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(358,1): warning C4133: 'initializing': incompatible types - from 'BPosition' to 'UPosition'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(179): warning C4715: 'add_book': not all control paths return a value
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(198): warning C4715: 'load_books': not all control paths return a value
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(217): warning C4715: 'load_users': not all control paths return a value
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(261): warning C4716: 'print_books_and_borrowers': must return a value
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(283): warning C4716: 'insert_book_sorted': must return a value
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(163): warning C4715: 'add_user': not all control paths return a value
+  Strukture_Projekt.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Debug\Strukture_Projekt.exe

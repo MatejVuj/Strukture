@@ -1,11 +1,1 @@
-﻿  z7.c
-C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(62,6): warning C4013: 'menu' undefined; assuming extern returning int
-C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(147,20): warning C4047: 'return': 'Position' differs in levels of indirection from 'int'
-C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(220,11): warning C4047: 'return': 'int' differs in levels of indirection from 'StackPosition'
-C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Vjezba7\z7.c(246,22): warning C4047: '=': 'StackPosition' differs in levels of indirection from 'int'
-  Generating code
-  2 of 15 functions (13.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  Vjezba7.vcxproj -> C:\Users\Korisnik\Desktop\Tuna\Vjezba7\Release\Vjezba7.exe
+﻿  Vjezba7.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Vjezba7\Release\Vjezba7.exe
