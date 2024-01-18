@@ -47,7 +47,7 @@ struct user {
 } User;
 
 // Struktura za informacije o knjizi
-struct book{
+struct book {
     char title[100];
     char author[100];
     int year;
@@ -104,9 +104,9 @@ int main() {
     char* file_name = { 0 };
     char name[100] = { 0 };
     char title[100] = { 0 };
-    
-    while(choise != 9) {
-    
+
+    while (choise != 9) {
+
         choise = menu(insert);
         switch (choise) {
 
