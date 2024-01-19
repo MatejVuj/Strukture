@@ -64,21 +64,23 @@ BPosition add_book(BPosition* head, char title[100], char author[100], int year,
 // Funkcija za dodavanje korisnika u listu
 UPosition add_user(UPosition* head, char name[100], int borrowedBooksCount, int maxBorrowedBooks);
 
+BPosition sort_books_alphabetically(BPosition head);
+
 // Funkcija za učitavanje podataka o knjigama iz datoteke
 BPosition load_books(BPosition* head, char filename[100]);
 
 // Funkcija za učitavanje podataka o korisnicima iz datoteke
-UPosition load_users(UPosition* head, char filename[100]);
+UPosition load_users(BPosition books, UPosition users, char filename[100]);
 
 BPosition print_books_and_borrowers(BPosition head);
 
 BPosition insert_book_sorted(BPosition* head, BPosition new_book);
 
-int borrow_book(BPosition books, UPosition users, char* username[100], char* title[100]);
+int borrow_book(BPosition books, UPosition users, const char* username[100], const char* title[100]);
 
-BPosition find_book_by_title(BPosition head, char title[100]);
+BPosition find_book_by_title(BPosition head, const char title[100]);
 
-UPosition find_user(UPosition head, char name[100]);
+UPosition find_user(UPosition head, const char name[100]);
 
 // Funckija za pretrazivanje knjiga po godini
 BPosition search_books_by_year(BPosition head);
@@ -100,23 +102,25 @@ int return_book(BPosition books, UPosition users, const char* userName, const ch
 int main() {
     BPosition books = NULL;
     UPosition users = NULL;
+    // UPosition loaded_users = NULL;
     int insert = 0, choise = 0, numBooks = 0;
     char* file_name = { 0 };
     char name[100] = { 0 };
     char title[100] = { 0 };
 
-    while (choise != 9) {
+    while (choise != 100) {
 
         choise = menu(insert);
         switch (choise) {
 
         case 1:
-            load_books(&books, "books.txt");
+            books = load_books(&books, "books.txt");
             break;
 
         case 2:
             //Ovo izvrtit samo pri kraju programa
-            print_users_alphabetically(users);
+            //load_users(books, &users, "users.txt");
+            users = print_users_alphabetically(users);
             break;
 
         case 3:
@@ -125,27 +129,28 @@ int main() {
             break;
 
         case 4:
+            load_users(books, &users, "users_borrow.txt");
             //printf("");
-            users = add_user(users, "Alice", 0, 5);
+            /*users = add_user(users, "Alice", 0, 5);
             borrow_book(books, users, "Alice", "1984");
             borrow_book(books, users, "Alice", "The_Catcher_in_the_Rye");
             borrow_book(books, users, "Alice", "To_Kill_a_Mockingbird");
             borrow_book(books, users, "Alice", "The_Lord_of_the_Rings");
-            borrow_book(books, users, "Alice", "The_Harry_Potter_series");
+            borrow_book(books, users, "Alice", "The_Harry_Potter_series");*/
             break;
 
         case 5:
-            users = add_user(users, "Bob", 0, 5);
-            borrow_book(books, users, "Bob", "1984");
+            //users = add_user(users, "Bob", 0, 5);
+            borrow_book(books, &users, "Bob", "1984");
             break;
 
         case 6:
-            users = add_user(users, "Charlie", 0, 5);
-            borrow_book(books, users, "Charlie", "1984");
+            //users = add_user(users, "Charlie", 0, 5);
+            borrow_book(books, &users, "Charlie", "1984");
             break;
 
         case 7:
-            borrow_book(books, users, "Alice", "The_Chronicles_of_Narnia");
+            borrow_book(books, &users, "Alice", "The_Chronicles_of_Narnia");
             break;
 
         case 8:
@@ -160,7 +165,7 @@ int main() {
             printf("\n\tInsert name of user:\t");
             scanf(" %s", name);
 
-            users = add_user(users, name, 0, 5);
+            add_user(&users, name, 0, 5);
             break;
 
         case 11:
@@ -168,15 +173,16 @@ int main() {
             scanf(" %s", name);
             printf("\n\tInsert title of book:\t");
             scanf(" %s", title);
-            borrow_book(books, users, name, title);
+            borrow_book(books, &users, name, title);
             break;
 
         case 12:
+
             printf("\n\tInsert name of user:\t");
             scanf(" %s", name);
             printf("\n\tInsert title of book:\t");
             scanf(" %s", title);
-            return_book(books, users, name, title);
+            return_book(books, &users, name, title);
 
         }
 
@@ -215,10 +221,11 @@ UPosition add_user(UPosition* head, char name[100], int borrowedBooksCount, int 
     new_user->borrowedBooksCount = borrowedBooksCount;
     new_user->maxBorrowedBooks = maxBorrowedBooks;
     new_user->borrowedBooks = NULL;
-    new_user->Next = head;
 
-    head = new_user;
-    return head;
+    new_user->Next = *head;
+    *head = new_user;
+
+    return *head;
 }
 
 BPosition add_book(BPosition* head, char title[100], char author[100], int year, int copies) {
@@ -232,9 +239,11 @@ BPosition add_book(BPosition* head, char title[100], char author[100], int year,
     new_book->year = year;
     new_book->copies = copies;
     new_book->Users = NULL;
-    new_book->Next = *head;
 
+    new_book->Next = *head;
     *head = new_book;
+
+    return new_book;
 }
 
 BPosition load_books(BPosition* head, char filename[100]) {
@@ -254,9 +263,10 @@ BPosition load_books(BPosition* head, char filename[100]) {
     }
 
     fclose(file);
+    return *head;
 }
 
-//UPosition load_users(UPosition* head, char filename[100]) {
+//int load_users(BPosition books, UPosition users, char filename[100]) {
 //    FILE* file = fopen(filename, "r");
 //    if (file == NULL) {
 //        perror("Error opening file");
@@ -264,16 +274,41 @@ BPosition load_books(BPosition* head, char filename[100]) {
 //    }
 //
 //    char line[256];
-//    int borrowedBooksCount = 0;
 //    while (fgets(line, sizeof(line), file)) {
-//        char name[100];
-//        if (sscanf(line, "%s,%d", name, borrowedBooksCount) == 2) {
-//            add_user(head, name, borrowedBooksCount);
+//
+//        char userName[100], bookTitle[100];
+//
+//        if (sscanf(line, "%99[^,],%99[^,]", userName, bookTitle) == 2) {
+//            borrow_book(books, users, userName, bookTitle);
 //        }
+//
 //    }
 //
 //    fclose(file);
+//    return 1;
 //}
+
+UPosition load_users(BPosition books, UPosition users, char filename[100]) {
+    FILE* file = fopen(filename, "r");
+    if (file == NULL) {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+
+    char line[256];
+    while (fgets(line, sizeof(line), file)) {
+        char name[100], bookTitle[100];
+        if (sscanf(line, "%99[^,],%99[^\n]", name, bookTitle) == 2) {
+            printf("Read from file: User: %s, Book: %s\n", name, bookTitle);
+            int result = borrow_book(books, users, name, bookTitle);
+            printf("Borrow result: %d\n", result);
+        }
+    }
+
+    fclose(file);
+    return users;
+}
+
 
 // Funkcija za sortiranje knjiga abecedno
 BPosition sort_books_alphabetically(BPosition head) {
@@ -292,7 +327,6 @@ BPosition sort_books_alphabetically(BPosition head) {
 
 // Funkcija za ispis svih knjiga abecedno s informacijama o knjizi i korisnicima
 BPosition print_books_and_borrowers(BPosition head) {
-    BPosition first = head;
     // Sortiranje knjiga abecedno
     BPosition sorted_books = sort_books_alphabetically(head);
     BPosition first1 = sorted_books;
@@ -405,17 +439,45 @@ BPosition find_book_by_title(BPosition head, const char* title) {
 }
 
 // funkcija za pronalaženje korisnika
-UPosition find_user(UPosition head, const char* name) {
-    UPosition current_user = head;
+UPosition find_user(UPosition* head, const char* name) {
+    UPosition current_user = *head;
+    UPosition previous_user = NULL;
+    // UPosition first = *head;
+
+     // Find the user by name
     while (current_user != NULL) {
         if (strcmp(current_user->name, name) == 0) {
             return current_user;
         }
+
+        previous_user = current_user;
         current_user = current_user->Next;
     }
 
     // User not found, add a new user
-    return add_user(&head, name, 0, 5);
+    UPosition new_user = (UPosition)malloc(sizeof(struct user));
+    if (new_user == NULL) {
+        perror("Error allocation find_user");
+        exit(EXIT_FAILURE);
+    }
+
+    strcpy(new_user->name, name);
+    new_user->borrowedBooksCount = 0;
+    new_user->maxBorrowedBooks = 5;
+    new_user->borrowedBooks = NULL;
+    new_user->Next = NULL;
+
+    // Update pointers
+    if (previous_user == NULL) {
+        // The new user is the first in the list
+        *head = new_user;
+    }
+    else {
+        // Add the new user to the end of the list
+        previous_user->Next = new_user;
+    }
+
+    return new_user;
 }
 
 int books_borrowed_count(UPosition user) {
@@ -470,11 +532,8 @@ BPosition search_books_by_author(BPosition head) {
 UPosition print_users_alphabetically(UPosition head) {
     // Sortiranje korisnika abecedno
     UPosition sorted_users = sort_users_alphabetically(head);
-    // Ovo vraca prvi pointer liste za usere
-    UPosition first = head;
+    UPosition first = sorted_users;
 
-
-    // Ispis svih korisnika i informacija o posuđenim knjigama
     printf("\nSvi korisnici abecedno:\n");
     while (sorted_users != NULL) {
         printf("\nUser: %s, Borrowed Books: %d\n", sorted_users->name, books_borrowed_count(sorted_users));
@@ -496,19 +555,23 @@ UPosition print_users_alphabetically(UPosition head) {
 
         sorted_users = sorted_users->Next;
     }
+
     return first;
 }
 
 // Funkcija za sortiranje korisnika abecedno
 UPosition sort_users_alphabetically(UPosition head) {
     UPosition sorted_users = NULL;
+    UPosition current_user = head;
 
-    while (head != NULL) {
-        UPosition current_user = head;
-        head = head->Next;
+    while (current_user != NULL) {
+        UPosition next_user = current_user->Next;
+        current_user->Next = NULL;
 
-        // Umetanje korisnika na odgovarajuće mjesto u sortiranu listu
+        // Insert the user at the appropriate position in the sorted list
         insert_user_sorted(&sorted_users, current_user);
+
+        current_user = next_user;
     }
 
     return sorted_users;
@@ -545,7 +608,7 @@ int return_book(BPosition books, UPosition users, const char* userName, const ch
 
     if (returned_book == NULL) {
         printf("Book not found.\n");
-        return;
+        return EXIT_FAILURE;
     }
 
     // Pronađi korisnika po imenu
@@ -553,17 +616,19 @@ int return_book(BPosition books, UPosition users, const char* userName, const ch
 
     if (returning_user == NULL) {
         printf("User not found.\n");
-        return;
+        return EXIT_FAILURE;
     }
 
     // Provjeri je li korisnik posudio tu knjigu
     BPosition borrowed_book = returning_user->borrowedBooks;
     BPosition previous_borrowed_book = NULL;
+    UPosition user_borrowed = returned_book->Users;
+    UPosition previous_user = NULL;
 
     while (borrowed_book != NULL) {
         if (strcmp(borrowed_book->title, bookTitle) == 0) {
             // Ažuriraj broj primjeraka knjige i vrati knjigu
-            borrowed_book->copies++;
+            returned_book->copies++;
 
             // Obrisi knjigu iz liste posudjenih knjiga korisnika
             if (previous_borrowed_book == NULL) {
@@ -573,19 +638,32 @@ int return_book(BPosition books, UPosition users, const char* userName, const ch
                 previous_borrowed_book->Next = borrowed_book->Next;
             }
 
-            free(borrowed_book);
+            // Obrisi korisnika iz liste korisnika koji su posudili knjigu
+            if (previous_user == NULL) {
+                returned_book->Users = user_borrowed->Next;
+            }
+            else {
+                previous_user->Next = user_borrowed->Next;
+            }
 
             // Smanji broj posudjenih knjiga za korisnika
             returning_user->borrowedBooksCount--;
 
             printf("Book successfuly returned.\n");
-            return;
+
+            
+            free(borrowed_book);
+            free(user_borrowed);
+            return EXIT_SUCCESS;
         }
 
         previous_borrowed_book = borrowed_book;
         borrowed_book = borrowed_book->Next;
+
+        previous_user = user_borrowed;
+        user_borrowed = user_borrowed->Next;
     }
 
     printf("User did not borrow that book.\n");
-    return;
+    return EXIT_FAILURE;
 }

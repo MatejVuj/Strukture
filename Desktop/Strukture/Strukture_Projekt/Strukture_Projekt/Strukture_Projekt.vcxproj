@@ -145,6 +145,7 @@
     <Text Include="books.txt" />
     <Text Include="library.txt" />
     <Text Include="users.txt" />
+    <Text Include="users_borrow.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

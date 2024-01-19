@@ -23,10 +23,13 @@
     <Text Include="books.txt">
       <Filter>Source Files</Filter>
     </Text>
-    <Text Include="users.txt">
+    <Text Include="users_borrow.txt">
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="library.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="users.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
