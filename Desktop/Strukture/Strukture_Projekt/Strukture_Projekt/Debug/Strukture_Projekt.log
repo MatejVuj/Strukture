@@ -1,65 +1,22 @@
 ﻿  Projekt.c
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(129,35): warning C4047: 'function': 'UPosition *' differs in levels of indirection from 'UPosition'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(129,30): warning C4024: 'add_user': different types for formal and actual parameter 1
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(130,46): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [6]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(130,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(130,54): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [5]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(130,48): warning C4024: 'borrow_book': different types for formal and actual parameter 4
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(131,46): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [6]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(131,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(131,72): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [23]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(131,48): warning C4024: 'borrow_book': different types for formal and actual parameter 4
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(132,46): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [6]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(132,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(132,71): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [22]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(132,48): warning C4024: 'borrow_book': different types for formal and actual parameter 4
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(133,46): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [6]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(133,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(133,71): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [22]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(133,48): warning C4024: 'borrow_book': different types for formal and actual parameter 4
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(134,46): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [6]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(134,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(134,73): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [24]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(134,48): warning C4024: 'borrow_book': different types for formal and actual parameter 4
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(138,35): warning C4047: 'function': 'UPosition *' differs in levels of indirection from 'UPosition'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(138,30): warning C4024: 'add_user': different types for formal and actual parameter 1
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(139,44): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [4]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(139,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(139,52): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [5]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(139,46): warning C4024: 'borrow_book': different types for formal and actual parameter 4
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(143,35): warning C4047: 'function': 'UPosition *' differs in levels of indirection from 'UPosition'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(143,30): warning C4024: 'add_user': different types for formal and actual parameter 1
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(144,48): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [8]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(144,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(144,56): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [5]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(144,50): warning C4024: 'borrow_book': different types for formal and actual parameter 4
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(148,46): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [6]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(148,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(148,74): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [25]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(148,48): warning C4024: 'borrow_book': different types for formal and actual parameter 4
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(163,35): warning C4047: 'function': 'UPosition *' differs in levels of indirection from 'UPosition'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(163,30): warning C4024: 'add_user': different types for formal and actual parameter 1
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(171,43): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [100]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(171,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(171,50): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [100]'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(171,45): warning C4024: 'borrow_book': different types for formal and actual parameter 4
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(218,26): warning C4047: '=': 'UPosition' differs in levels of indirection from 'UPosition *'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(220,20): warning C4047: '=': 'UPosition *' differs in levels of indirection from 'UPosition'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(221,16): warning C4047: 'return': 'UPosition' differs in levels of indirection from 'UPosition *'
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(347,63): warning C4028: formal parameter 3 different from declaration
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(347,85): warning C4028: formal parameter 4 different from declaration
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(349,66): warning C4090: 'function': different 'const' qualifiers
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(357,56): warning C4090: 'function': different 'const' qualifiers
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(364,58): warning C4013: 'books_borrowed_count' undefined; assuming extern returning int
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(396,58): warning C4028: formal parameter 2 different from declaration
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(408,49): warning C4028: formal parameter 2 different from declaration
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(418,32): warning C4090: 'function': different 'const' qualifiers
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(548,9): warning C4033: 'return_book' must return a value
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(556,9): warning C4033: 'return_book' must return a value
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(582,13): warning C4033: 'return_book' must return a value
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(590,5): warning C4033: 'return_book' must return a value
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(238): warning C4715: 'add_book': not all control paths return a value
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(257): warning C4715: 'load_books': not all control paths return a value
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(344): warning C4716: 'insert_book_sorted': must return a value
-C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(591): warning C4716: 'return_book': must return a value
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(134,29): warning C4047: 'function': 'UPosition' differs in levels of indirection from 'UPosition *'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(134,23): warning C4024: 'load_users': different types for formal and actual parameter 2
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(166,35): warning C4047: 'function': 'UPosition' differs in levels of indirection from 'UPosition *'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(166,29): warning C4024: 'ask_user': different types for formal and actual parameter 2
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(174,38): warning C4047: 'function': 'UPosition' differs in levels of indirection from 'UPosition *'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(174,32): warning C4024: 'return_book': different types for formal and actual parameter 2
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(279,43): warning C4047: 'function': 'const char **' differs in levels of indirection from 'char [100]'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(279,39): warning C4024: 'borrow_book': different types for formal and actual parameter 3
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(279,54): warning C4047: 'function': 'const char **' differs in levels of indirection from 'char [100]'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(279,45): warning C4024: 'borrow_book': different types for formal and actual parameter 4
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(359,63): warning C4028: formal parameter 3 different from declaration
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(359,85): warning C4028: formal parameter 4 different from declaration
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(433,32): warning C4028: formal parameter 1 different from declaration
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(613,47): warning C4047: 'function': 'UPosition *' differs in levels of indirection from 'UPosition'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(613,42): warning C4024: 'find_user': different types for formal and actual parameter 1
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(727,44): warning C4047: 'function': 'UPosition *' differs in levels of indirection from 'UPosition'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(727,39): warning C4024: 'find_user': different types for formal and actual parameter 1
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(757,44): warning C4047: 'function': 'UPosition' differs in levels of indirection from 'UPosition *'
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(757,32): warning C4024: 'borrow_book': different types for formal and actual parameter 2
+C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Strukture_Projekt\Projekt.c(356): warning C4716: 'insert_book_sorted': must return a value
   Strukture_Projekt.vcxproj -> C:\Users\Korisnik\Desktop\Strukture\Strukture_Projekt\Debug\Strukture_Projekt.exe

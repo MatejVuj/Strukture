@@ -20,17 +20,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="books.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="users_borrow.txt">
-      <Filter>Source Files</Filter>
-    </Text>
     <Text Include="library.txt">
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="users.txt">
       <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="books.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="users_borrow.txt">
+      <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
 </Project>
