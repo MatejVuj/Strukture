@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="zad10a.c" />
+    <ClCompile Include="zad10b.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="drzave.txt" />

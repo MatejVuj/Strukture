@@ -1,87 +1,210 @@
 #define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-#include <ctype.h>
+#include <string.h>
 
-#define MAX 50
-#define MAX_LINE 256
 #define EXIT_SUCCESS 0
-#define ERROR_ALLOCATION -1
-#define ERROR_FILE -2
+#define ERROR -1
+#define MAX 100
 
-struct Lista_drzave;
-typedef struct Lista_drzave* Position;
-struct Lista_drzave {
-
-	char name_country;
-	Position Next;
-
-}List;
-
-struct node;
-typedef struct node* SPosition;
-typedef struct node {
-
-	char name_city;
+struct _tree;
+typedef _tree* Position;
+typedef struct _tree
+{
+	char cityName[MAX];
 	int population;
+	Position left;
+	Position right;
+}tree;
 
-	SPosition Left;
-	SPosition Right;
-	SPosition Next;
+struct _list;
+typedef _list* ListPosition;
+typedef struct _list
+{
+	char stateName[MAX];
+	ListPosition Next;
+	Position TreeP;
+}list;
 
-}Node;
+int ReadCountryFromFile(ListPosition, char*);
+Position ReadCityFromFile(char*);
+int InsertSortedCountries(ListPosition, ListPosition);
+Position InsertSortedCities(Position, Position);
+int cityCmp(Position, Position);
+int InsertAfter(ListPosition, ListPosition);
+int PrintList(ListPosition);
+int PrintInOrder(Position);
+ListPosition FindCountryByName(ListPosition, char*);
+int PrintCitiesBiggerThan(Position, int);
 
-int ReadFile(Position, char*);
+int main()
+{
+	struct _list head;
+	head.Next = NULL;
+	ListPosition state = NULL;
+	char filename[MAX] = { 0 }, name[MAX] = { 0 };
+	int minPopulation = 0;
+	printf("Insert filename > ");
+	scanf("%s", filename);
+	ReadCountryFromFile(&head, filename);
+	PrintList(head.Next);
 
-int InicList(Position);
+	printf("\nInsert name of a country > ");
+	scanf("%s", name);
+	state = FindCountryByName(&head, name);
 
-int InsertSortList(Position, Position);
-Position InsertList(char*, int*);
+	printf("%s", state->stateName);
+	printf("\nInsert minimal population > ");
+	scanf("%d", &minPopulation);
+	PrintCitiesBiggerThan(state->TreeP, minPopulation);
 
-
-int main() {
-
-	Position head;
-
-
-	return 0;
+	return EXIT_SUCCESS;
 }
 
-int ReadFile(Position drzava, char* file_name) {
-	
+int ReadCountryFromFile(ListPosition P, char* filename)
+{
 	FILE* fp = NULL;
-	fp = fopen(file_name, "r");
-
-	if (fp == NULL) {
-		printf("\n\tPostovani %s datoteka ne postoji\n", file_name);
-		return ERROR_FILE;
+	char name[MAX] = { 0 }, file[MAX] = { 0 };
+	fp = fopen(filename, "r");
+	if (fp == NULL)
+	{
+		perror("Failed in file opening!\n");
+		return ERROR;
 	}
-
-	Position head = drzava;
-	Position pom = NULL;
-	int flag = 0;
-	char buffer[MAX_LINE] = { 0 };
-
-	while (!feof(fp)) {
-		pom = 0;
-		fscanf(fp, " %s", buffer);
-		pom = InsertList(buffer, &flag);
-
-		if (pom == NULL && flag == 1) {
-			fclose(fp);
-			return ERROR_ALLOCATION;
+	while (!feof(fp))
+	{
+		fscanf(fp, "%s %s", name, file);
+		ListPosition Q = NULL;
+		Q = (ListPosition)malloc(sizeof(list));
+		if (Q == NULL)
+		{
+			perror("Failed in dynamic allocation!\n");
+			return ERROR;
 		}
-		else if (pom == NULL && flag == 0) {
-			fclose(fp);
-			return ERROR_ALLOCATION;
-		}
-		
-		InsertSortList(drzava, pom);
+		strcpy(Q->stateName, name);
+		Q->Next = NULL;
+		Q->TreeP = NULL;
 
+		InsertSortedCountries(P, Q);
+		Q->TreeP = ReadCityFromFile(file);
 	}
-
 	fclose(fp);
+	return EXIT_SUCCESS;
+}
+
+int InsertSortedCountries(ListPosition P, ListPosition Q)
+{
+	ListPosition head = P;
+	while (head->Next != NULL && strcmp(head->Next->stateName, Q->stateName) < 0)
+		head = head->Next;
+
+	InsertAfter(head, Q);
+	return EXIT_SUCCESS;
+}
+
+int InsertAfter(ListPosition P, ListPosition Q)
+{
+	Q->Next = P->Next;
+	P->Next = Q;
+	return EXIT_SUCCESS;
+}
+
+int PrintList(ListPosition P)
+{
+	while (P != NULL)
+	{
+		printf("%s ", P->stateName);
+		P = P->Next;
+	}
+	return EXIT_SUCCESS;
+}
+
+Position ReadCityFromFile(char* filename)
+{
+	Position root = NULL;
+	FILE* fp = NULL;
+	char name[MAX] = { 0 };
+	int number = 0;
+	fp = fopen(filename, "r");
+	if (fp == NULL)
+	{
+		perror("Failed in file opening!\n");
+		return NULL;
+	}
+	while (!feof(fp))
+	{
+		fscanf(fp, "%s %d", name, &number);
+		Position Tree = NULL;
+		Tree = (Position)malloc(sizeof(tree));
+		strcpy(Tree->cityName, name);
+		Tree->population = number;
+		Tree->right = NULL;
+		Tree->left = NULL;
+		root = InsertSortedCities(root, Tree);
+	}
+	PrintInOrder(root);
+	printf("\n");
+	fclose(fp);
+	return root;
+}
+
+Position InsertSortedCities(Position P, Position Q)
+{
+	int result = 0;
+	if (P == NULL)
+		return Q;
+	result = cityCmp(P, Q);
+	if (result > 0)
+		P->left = InsertSortedCities(P->left, Q);
+	else if (result < 0)
+		P->right = InsertSortedCities(P->right, Q);
+	else
+	{
+		free(Q);
+	}
+	//else free node
+
+	return P;
+}
+
+int cityCmp(Position P, Position Q)
+{
+	int result = 0;
+	result = P->population - Q->population;
+	if (result == 0)
+		result = strcmp(P->cityName, Q->cityName);
+	return result;
+}
+
+int PrintInOrder(Position P)
+{
+	if (P == NULL)
+		return EXIT_SUCCESS;
+	PrintInOrder(P->left);
+	printf("%s %d\t", P->cityName, P->population);
+	PrintInOrder(P->right);
+	return EXIT_SUCCESS;
+}
+
+ListPosition FindCountryByName(ListPosition P, char* name)
+{
+	ListPosition head = P;
+	while (head->Next != NULL)
+	{
+		if (strcmp(head->stateName, name) == 0)
+			return head;
+		head = head->Next;
+	}
+	return NULL;
+}
+
+int PrintCitiesBiggerThan(Position P, int minPopulation)
+{
+	if (P == NULL)
+		return EXIT_SUCCESS;
+	PrintCitiesBiggerThan(P->left, minPopulation);
+	if (P->population > minPopulation)
+		printf("%s %d", P->cityName, P->population);
+	PrintCitiesBiggerThan(P->right, minPopulation);
 	return EXIT_SUCCESS;
 }

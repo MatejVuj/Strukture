@@ -18,6 +18,9 @@
     <ClCompile Include="zad10a.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="zad10b.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="drzave.txt">
