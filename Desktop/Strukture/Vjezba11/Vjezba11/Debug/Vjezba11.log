@@ -1,0 +1,103 @@
+﻿  zad11.c
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(12,14): error C2143: syntax error: missing '{' before '*'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(17,2): error C2061: syntax error: identifier 'Position'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(18,11): error C2061: syntax error: identifier 'right'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(18,11): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(19,1): error C2059: syntax error: '}'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(22,14): error C2143: syntax error: missing '{' before '*'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(26,2): error C2061: syntax error: identifier 'ListPosition'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(27,11): error C2061: syntax error: identifier 'TreeP'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(27,11): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(28,1): error C2059: syntax error: '}'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(31,14): error C2143: syntax error: missing '{' before '*'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(34,2): error C2061: syntax error: identifier 'list'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(35,1): error C2059: syntax error: '}'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(37,40): error C2122: 'char *': prototype parameter in name list illegal
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(38,10): error C2061: syntax error: identifier 'ReadCityFromFile'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(38,10): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(38,31): error C2059: syntax error: '<parameter-list>'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(40,10): error C2061: syntax error: identifier 'InsertSortedCities'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(40,10): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(40,37): error C2143: syntax error: missing ')' before ','
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(40,29): error C2040: 'Position': 'int' differs in levels of indirection from 'int *'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(40,47): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(40,39): error C2040: 'Position': 'int' differs in levels of indirection from 'int *'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(45,14): error C2061: syntax error: identifier 'FindCountryByName'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(45,14): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(45,44): error C2143: syntax error: missing ')' before ','
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(45,32): error C2040: 'ListPosition': 'int' differs in levels of indirection from 'int *'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(45,50): error C2059: syntax error: 'type'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(45,51): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(46,41): error C2122: 'int': prototype parameter in name list illegal
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(48,9): error C2061: syntax error: identifier 'CreateHash'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(48,9): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(48,20): error C2059: syntax error: '<parameter-list>'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(52,15): error C2079: 'head' uses undefined struct '_list'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(53,7): error C2224: left of '.Next' must have struct/union type
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(54,10): error C2146: syntax error: missing ';' before identifier 'Hash'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(54,15): error C2065: 'Hash': undeclared identifier
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(54,21): warning C4047: '=': 'int' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(55,15): error C2146: syntax error: missing ';' before identifier 'state'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(55,21): error C2065: 'state': undeclared identifier
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(55,27): warning C4047: '=': 'int' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(58,7): error C2065: 'Hash': undeclared identifier
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(58,19): warning C4013: 'CreateHash' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(61,26): error C2065: 'Hash': undeclared identifier
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(62,17): error C2224: left of '.Next' must have struct/union type
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(67,8): error C2065: 'state': undeclared identifier
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(67,27): warning C4013: 'FindCountryByName' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(67,33): error C2065: 'Hash': undeclared identifier
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(67,35): error C2223: left of '->table' must point to struct/union
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(70,20): error C2065: 'state': undeclared identifier
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(70,22): error C2223: left of '->stateName' must point to struct/union
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(70,9): warning C4473: 'printf' : not enough arguments passed for format string
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(70,9): message : placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(70,9): message : the missing variadic argument 1 is required by format string '%s'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(73,29): error C2065: 'state': undeclared identifier
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(73,31): error C2223: left of '->TreeP' must point to struct/union
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(78,33): error C2146: syntax error: missing ')' before identifier 'H'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(78,33): error C2061: syntax error: identifier 'H'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(78,33): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(78,34): error C2059: syntax error: ','
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(78,50): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(110,40): error C2146: syntax error: missing ')' before identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(110,40): error C2061: syntax error: identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(110,40): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(110,41): error C2059: syntax error: ','
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(110,57): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(119,30): error C2146: syntax error: missing ')' before identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(119,30): error C2061: syntax error: identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(119,30): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(119,31): error C2059: syntax error: ','
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(119,47): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(126,28): error C2146: syntax error: missing ')' before identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(126,28): error C2061: syntax error: identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(126,28): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(126,29): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(127,1): error C2449: found '{' at file scope (missing function header?)
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(134,1): error C2059: syntax error: '}'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(165,10): error C2061: syntax error: identifier 'InsertSortedCities'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(165,10): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(165,38): error C2146: syntax error: missing ')' before identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(165,38): error C2061: syntax error: identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(165,39): error C2059: syntax error: ','
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(165,51): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(184,22): error C2146: syntax error: missing ')' before identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(184,22): error C2061: syntax error: identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(184,22): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(184,23): error C2059: syntax error: ','
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(184,35): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(193,27): error C2146: syntax error: missing ')' before identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(193,27): error C2061: syntax error: identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(193,27): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(193,28): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(194,1): error C2449: found '{' at file scope (missing function header?)
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(201,1): error C2059: syntax error: '}'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(215,36): error C2146: syntax error: missing ')' before identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(215,36): error C2061: syntax error: identifier 'P'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(215,36): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(215,37): error C2059: syntax error: ','
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(215,56): error C2059: syntax error: ')'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(226,9): error C2061: syntax error: identifier 'CreateHash'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(226,9): error C2059: syntax error: ';'
+C:\Users\Korisnik\Desktop\Strukture\Vjezba11\Vjezba11\zad11.c(226,20): error C2059: syntax error: '<parameter-list>'

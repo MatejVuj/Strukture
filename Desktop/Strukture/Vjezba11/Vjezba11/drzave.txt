@@ -1,0 +1,6 @@
+Hrvatska hrv.txt
+Brazil bra.txt
+Argentina arg.txt
+Japan jpn.txt
+Engleska eng.txt
+Maroko mar.txt
