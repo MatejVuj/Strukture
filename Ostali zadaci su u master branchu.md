@@ -1,1 +1,1 @@
-Ostali zadaci su u master branchu
+Projekt iz struktura je u master branchu
